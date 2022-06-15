@@ -246,7 +246,7 @@ sociosxmun['# de refugiados y migrantes inscritos en instituciones educativas fo
 sociosxmun['# de refugiados y migrantes que son niños, adolescentes o jóvenes que reciben apoyo con suministros o servicios.'] = np.where(sociosxmun['# de refugiados y migrantes que son niños, adolescentes o jóvenes que reciben apoyo con suministros o servicios.']>0, 1, 0)
 sociosxmun['# de refugiados y migrantes matriculados en instituciones educativas formales o alternativas/programas de educación no formal que completan el ciclo escolar correspondiente']  = np.where(sociosxmun['# de refugiados y migrantes matriculados en instituciones educativas formales o alternativas/programas de educación no formal que completan el ciclo escolar correspondiente'] >0, 1, 0)
 
-# Select 1 to 3 columns to sum
+# Select 3 to 7 columns to sum
 sociosxmun['Sum']=sociosxmun.iloc[:,3:7].sum(axis=1)
 sociosxmun = sociosxmun[sociosxmun.Sum != 0]
 sociosxmun.pop("Sum")
@@ -257,6 +257,7 @@ sociosxmun.rename(columns = {'Admin Municipio':'muni'}, inplace = True)
 sociosxmun["Numero"] = sociosxmun.muni.astype('category').cat.codes.add(1)
 sociosxmun = sociosxmun.set_index('Numero')
 
+#Guardar
 
 Writer= pd.ExcelWriter("C:/Users/Lisa/Documents/Bases de Python/Bases Actualizables/tablero_Educacion_03_2022.xlsx")
 
