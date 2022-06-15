@@ -227,10 +227,6 @@ indicadores_api= pd.DataFrame(
 
 indicadores_api.index.name = titulo['Indicador']
 
-
-
-
-
 sociosxmun = pd.pivot_table(df_5w_sector_mes,index=['Admin Municipio','Socio Principal Nombre'], columns = '_ Indicador', values='Total beneficiarios nuevos durante el mes').round(0).reset_index()
 sociosxmun= sociosxmun.replace(np.nan,0)
 sociosxmun.dtypes
